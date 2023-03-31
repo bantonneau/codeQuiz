@@ -1,0 +1,91 @@
+* {
+    font-family: sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+
+#question-subcontainer {
+    display: none;
+}
+
+#end-container {
+    display: none;
+}
+
+/* format header */
+#header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    background-color: #644a61;
+    padding: 20px;
+    height: 100vh;
+}
+
+/*a clean and modern design, with a white background, rounded corners, box shadow, and centered layout.*/
+.question-container {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+    margin: 0 auto;
+    padding: 20px;
+    width: 500px;
+    /* center the container vertically and horizontally in the page */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*make the container resize with the window*/
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+}
+
+.question {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.answer-button {
+    background-color: #644a61;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+    /* horizontally center the two rows of buttons */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row1-answer-buttons, .row2-answer-buttons {
+    /* vertically center the two rows of buttons */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* format end screen score */
+#quizScore {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+/* format end screen submission form */
+#frm1 {
+    display: flex;
+    justify-content: center;
+}
+
+#frm1 input{
+    margin-left: 2%;
+}

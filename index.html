@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="header">
+            <h1 id="scoreTracker"></h1>
+            <h1 id="timer"></h1>
+        </div>
+        <div class="question-container">
+            <div class="start-container">
+                <button id="startButton" class="answer-button">Start</button>
+            </div>
+            <div id="question-subcontainer">
+                <div>
+                    <h2>Question</h2>
+                    <p id="question"></p>
+                </div>
+                <div class="answer">
+                    <div class="row1-answer-buttons">
+                        <button id="button1" class="answer-button">Answer 1</button>
+                        <button id="button2" class="answer-button">Answer 2</button>
+                    </div>
+                    <div class="row2-answer-buttons">
+                        <button id="button3" class="answer-button">Answer 3</button>
+                        <button id="button4" class="answer-button">Answer 4</button>
+                    </div>
+                </div>
+            </div>
+            <div id="end-container">
+                <h2 id="quizScore"></h2>
+                <form id="frm1">
+                    Initials: <input maxlength="2" type="text" name="fname"><br>
+                    <input id="submitButton" type="button" onclick="myFunction()" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="assets/scripts.js"></script>
+</body>
+
+</html>
