@@ -1,9 +1,11 @@
+/* sets the font family, padding, and margin for all elements on the page. */
 * {
     font-family: sans-serif;
     padding: 0px;
     margin: 0px;
 }
 
+/* #question-subcontainer and #end-container elements are hidden from view. */
 #question-subcontainer {
     display: none;
 }
@@ -18,6 +20,7 @@
     justify-content: space-between;
 }
 
+/* defines the background color and height of the main container. */
 .container {
     background-color: #644a61;
     padding: 20px;
@@ -43,12 +46,14 @@
     overflow: auto;
 }
 
+/* sets the font size, weight, and margin for the question text. */
 .question {
     font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
+/* defines the style for the answer buttons. also centers the buttons horizontally and vertically. */
 .answer-button {
     background-color: #644a61;
     border: none;
@@ -73,7 +78,7 @@
     align-items: center;
 }
 
-/* format end screen score */
+/* format end screen */
 #quizScore {
     display: flex;
     justify-content: center;

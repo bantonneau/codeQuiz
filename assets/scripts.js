@@ -1,31 +1,36 @@
-//end screen
-    //save initials (local storage)
+// This is a JavaScript file for a quiz game.
+// The game consists of ten multiple-choice questions.
+// The user has a limited amount of time to answer the questions.
+// The score is displayed at the end of the game and can be saved in local storage.
 
-
+// Get elements from the HTML document
 var questionEl = document.getElementById("question");
 var buttonEl1 = document.getElementById("button1");
 var buttonEl2 = document.getElementById("button2");
 var buttonEl3 = document.getElementById("button3");
 var buttonEl4 = document.getElementById("button4");
+var livescore = document.getElementById("scoreTracker");
+var endScore = document.getElementById("quizScore");
+var startButton = document.getElementById("startButton");
+var quizContainer = document.getElementById("question-subcontainer");
+var endScreen = document.getElementById("end-container");
+var header = document.getElementById("header");
+var previousAttemptInitials = document.getElementById("previousAttemptInitials");
+var liveTime = document.getElementById("timer");
+
+// Add event listeners to the answer buttons
 buttonEl1.addEventListener("click",getAnswer);
 buttonEl2.addEventListener("click",getAnswer);
 buttonEl3.addEventListener("click",getAnswer);
 buttonEl4.addEventListener("click",getAnswer);
 
+// Set initial values for variables
 var questionIndex = 0;
 var score = 0;
-var livescore = document.getElementById("scoreTracker");
-var endScore = document.getElementById("quizScore");
-
-var startButton = document.getElementById("startButton");
-var quizContainer = document.getElementById("question-subcontainer");
-var endScreen = document.getElementById("end-container");
-var header = document.getElementById("header");
-
-var previousAttemptInitials = document.getElementById("previousAttemptInitials");
 var storedInitals = localStorage.getItem("initials") + ": " + localStorage.getItem("score");
+var time = 150
 
-
+// Start the quiz when the start button is clicked
 startButton.addEventListener("click", startQuiz);
 function startQuiz() {
     startButton.style.display = "none";
@@ -36,9 +41,7 @@ function startQuiz() {
     timer();
 }
 
-
-var time = 150
-var liveTime = document.getElementById("timer");
+// Countdown timer function
 function timer() {
     time--;
     liveTime.textContent = "Time: " + time.toString();
@@ -49,6 +52,7 @@ function timer() {
     }
 }
 
+// Display end screen
 function endQuiz() {
     quizContainer.style.display = "none";
     endScreen.style.display = "block";
@@ -57,6 +61,7 @@ function endQuiz() {
     previousAttemptInitials.textContent = storedInitals;
 }
 
+// Store the score in local storage when the user submits their initials
 function storeScore(){
     var localScore = document.getElementById("initials");
     localStorage.setItem("initials", localScore.value);
@@ -65,6 +70,7 @@ function storeScore(){
     previousAttemptInitials.textContent = storedInitals;
 }
 
+// Array of quiz questions
 var questions = [
     {
         question: "What does the acronym DOM stand for in JavaScript?",
@@ -118,7 +124,7 @@ var questions = [
     }
    ]
 
-
+//sets the text content of four buttons and a question element with data from an array of objects called questions. The questionIndex variable is used to track which question should be displayed.
 function getQuestion() {
         questionEl.textContent = questions[questionIndex].question
         buttonEl1.textContent = questions[questionIndex].options[0];
@@ -127,9 +133,11 @@ function getQuestion() {
         buttonEl4.textContent = questions[questionIndex].options[3];
     }
 
+//called when one of the four buttons is clicked. It checks whether the clicked button's innerHTML matches the answer to the current question 
 function getAnswer(e) {
     var button = e.target;
     console.log(button.innerHTML);
+    //If the answer is correct, the user's score is incremented, the questionIndex is incremented, and the text content of the livescore element is updated with the new score. If the user has answered all 10 questions, the time variable is set to 0. If the answer is incorrect, the time variable is decremented by 25.
     if (button.innerHTML === questions[questionIndex].answer) {
         score++;
         questionIndex++;
@@ -143,5 +151,6 @@ function getAnswer(e) {
         time -= 25;
     }}
 
+//initializes the quiz
 getQuestion();
 
