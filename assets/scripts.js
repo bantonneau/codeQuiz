@@ -1,7 +1,5 @@
-//timer
 //end screen
     //save initials (local storage)
-    //display score
 
 
 var questionEl = document.getElementById("question");
@@ -24,22 +22,47 @@ var quizContainer = document.getElementById("question-subcontainer");
 var endScreen = document.getElementById("end-container");
 var header = document.getElementById("header");
 
+var previousAttemptInitials = document.getElementById("previousAttemptInitials");
+var storedInitals = localStorage.getItem("initials") + ": " + localStorage.getItem("score");
+
+
 startButton.addEventListener("click", startQuiz);
 function startQuiz() {
     startButton.style.display = "none";
     quizContainer.style.display = "block";
+    endScreen.style.display = "none";
     livescore.textContent = "Score: " + score.toString();
-    setTimeout(endQuiz,10000);  
+    liveTime.textContent = "Time: " + time.toString();
+    timer();
 }
 
 
-
+var time = 150
+var liveTime = document.getElementById("timer");
+function timer() {
+    time--;
+    liveTime.textContent = "Time: " + time.toString();
+    if (time <= 0) {
+        endQuiz();
+    } else {
+        setTimeout(timer, 1000)
+    }
+}
 
 function endQuiz() {
     quizContainer.style.display = "none";
     endScreen.style.display = "block";
     header.style.display = "none";
     endScore.textContent = "Your Score Is: " + score.toString() + "/10";
+    previousAttemptInitials.textContent = storedInitals;
+}
+
+function storeScore(){
+    var localScore = document.getElementById("initials");
+    localStorage.setItem("initials", localScore.value);
+    localStorage.setItem("score", score);
+    storedInitals = localStorage.getItem("initials") + ": " + localStorage.getItem("score");
+    previousAttemptInitials.textContent = storedInitals;
 }
 
 var questions = [
@@ -111,12 +134,14 @@ function getAnswer(e) {
         score++;
         questionIndex++;
         livescore.textContent = "Score: " + score.toString();
-        getQuestion()
-    }
-}
+        if (questionIndex === 10) {
+            time = 0;
+        } else {
+            getQuestion();
+        }
+    } else if (button.innerHTML !== questions[questionIndex].answer) {
+        time -= 25;
+    }}
 
-getQuestion()
-
-
-    
+getQuestion();
 

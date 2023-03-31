@@ -80,6 +80,18 @@
     margin-bottom: 5%;
 }
 
+#previousAttempt {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+#previousAttemptInitials {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
 /* format end screen submission form */
 #frm1 {
     display: flex;
@@ -88,4 +100,5 @@
 
 #frm1 input{
     margin-left: 2%;
+    margin-bottom: 5%;
 }

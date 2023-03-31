@@ -37,10 +37,13 @@
             </div>
             <div id="end-container">
                 <h2 id="quizScore"></h2>
-                <form id="frm1">
-                    Initials: <input maxlength="2" type="text" name="fname"><br>
-                    <input id="submitButton" type="button" onclick="myFunction()" value="Submit">
+                <form id="frm1" autocomplete="off">
+                    Initials: <input maxlength="2" type="text" id="initials" name="fname"><br>
+                    <input id="submitButton" type="button" onclick="storeScore()" value="Submit">
                 </form>
+                <h2 id="previousAttempt">Previous Attempt</h2>
+                <h4 id="previousAttemptInitials"></h4>
+                <button onclick="window.location.reload();" id="tryAgainButton" class="answer-button" >Try Again</button>
             </div>
         </div>
     </div>
