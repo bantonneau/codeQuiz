@@ -12,5 +12,9 @@ Answer the presented question by selecting one of the provided options.
 If the answer is correct, you will be presented with another question. If the answer is incorrect, time will be subtracted from the clock and you will be presented with another question.
 When all questions are answered or the timer reaches zero, the game will be over and you will be able to save your initials and score.
 
+## Screenshot
+
+<img width="794" alt="image" src="https://user-images.githubusercontent.com/109747300/233529044-87b82379-8247-4d14-8dca-a07fcc3bc279.png">
+
 ## License
 This code quiz application is licensed under the MIT license. See the LICENSE file for more information.
